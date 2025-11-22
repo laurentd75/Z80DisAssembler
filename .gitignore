@@ -1,0 +1,17 @@
+# edit backups
+*~
+.*~
+
+# work files
+*.asm
+*.bin
+*.com
+*.hex
+*.z80
+
+# object files
+*.o
+
+# binaries
+z80assembler
+z80disassembler

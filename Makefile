@@ -20,4 +20,4 @@ z80disassembler: z80_disassembler.o kk_ihex_read.o
 	$(CC) -o $@ $^ $(CFLAGS)
 
 clean:
-	rm -f *.o
+	rm -f *.o *~
