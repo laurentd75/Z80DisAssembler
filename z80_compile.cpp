@@ -898,13 +898,16 @@ void DoPseudo( CommandP *cp ) {
             }
         } while ( ( c->typ == OPCODE ) && ( c->val == ',' ) );
         break;
-    case DEFS:
+    case DEFS: {
         cptr = c;
-        iPC += CalcTerm( &cptr ); // advance the PC
+        uint16_t size = CalcTerm( &cptr ); // get the amount
+        checkPC( iPC + size - 1 ); // guard against overflow
+        iPC += size; // advance the PC
         c = cptr;
         if ( LastRecalc )
             Error( "symbol not defined" );
         break;
+    }
     case FILL: {
         uint16_t size, fill = 0;
         cptr = c;
